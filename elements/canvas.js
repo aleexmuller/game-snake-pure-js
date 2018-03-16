@@ -1,14 +1,13 @@
-var Canvas = (function () {
-	var exception = Exception.make('CanvasException');
+var ElementCanvas = (function () {
 	/*
 	 * Cria um canvas element
 	 * 
 	 *  return DOM Element
 	 */
-	return function() {
-		if (!Const.get('ELEMENT_CANVAS')) {
-			throw exception('This element can not be created!');
-		}
-		return Element.create(Const.get('ELEMENT_CANVAS'));
+	return function ElementCanvas() {
+		if (!Const.get('ELEMENT_CANVAS')) 
+			throw new Exception('ElementCanvasException','The element canvas can not be created!');
+		
+		return new Element(Const.get('ELEMENT_CANVAS'));
 	}
 })(); 

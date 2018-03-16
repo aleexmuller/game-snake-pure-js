@@ -1,14 +1,22 @@
 
 var Game = (function () {
-
 	return {main: main};
 
 	function main() {
-		var canvas = new Canvas();
+		try {
+			var button = new ElementButton();
+			button.setContent('Click Me');
 
-		canvas.setAttribute('id', 04);
 
-		console.log(canvas);
+			new EventClick(button, function() {
+				alert('clicou');
+			});
+
+
+			console.log(button.element);
+		} catch(e) {
+			console.log(e);
+		}
 	}
 })(); 
 

@@ -1,21 +1,31 @@
 var Event = (function () {
-	// mapa de eventos que podem ser criados
-	// const MAP_EVENTS = [EVENT_CLICK, EVENT_FOCUS, EVENT_FOCUSOUT, EVENT_HOVER];
-
-	// cria um closure exception
-	var exception = Exception.make('EventException');
-
-	return {click: click}
 	/*
-	 * Cria um evento
+	 * Define o construtor da funcao Event
 	 * 
-	 *	@string name
+	 *	@string event, @object element, @function callback
+	 *
+	 *  return Object
+	 */
+	return function Event(event, element, callback) {
+		if (!__is_object(element)) 
+			throw new Exception('CreateEventException', 'The constructor expects an object in parameter "2"');
+		if (!__is_function(callback)) 
+			throw new Exception('CreateEventException', 'The constructor expects a function in parameter "3"');
+		
+		element.addEventListener(event, callback);
+		return {
+			remove: remove
+		}
+	}
+
+	/*
+	 * Remove um evento
+	 * 
+	 *	@function callback
+	 *
 	 *  return DOM Element
 	 */
-	function click(element, callback) {
-		// if (!MAP_EVENTS.includes(EVENT_CLICK)) {
-		// 	throw exception('This event can not be created!');
-		// } 
-		return element.addEventListener(Const.get('EVENT_CLICK'), callback);
+	function remove(callback) {
+		return this.element.removeEventListener(this.event, callback);
 	}
 })(); 

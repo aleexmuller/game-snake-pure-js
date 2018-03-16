@@ -1,14 +1,15 @@
 var Exception = (function () {
-	return {make: make}
 	/*
-	 * Cria um closure que retorna um Error
+	 * Cria uma exception
 	 * 
 	 *	@string name
-	 *  return Error
+	 *	@string message
+	 *  return Object
 	 */
-	function make (name) {
-		return function (message) {	
-			return new Error ([name, message].join('- '));
+	return function Exception(name, message) {
+		return {
+			name: name, 
+			message: message
 		}
 	}
 })(); 
