@@ -7,13 +7,12 @@ var Game = (function () {
 			var button = new ElementButton();
 			button.setContent('Click Me');
 
-
-			new EventClick(button, function() {
-				alert('clicou');
+			new EventClick(button.element, function(e) {
+				button.setContent('Clicado');
 			});
 
+			button.appendTo(document.body);
 
-			console.log(button.element);
 		} catch(e) {
 			console.log(e);
 		}

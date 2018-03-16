@@ -36,7 +36,7 @@ var Properties = (function () {
 	 *  return Boolean
 	 */
 	function setContent(value) {
-		return this.element.innerHtml = value;
+		return this.element.innerHTML = value;
 	}
 
 	/*
