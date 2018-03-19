@@ -5,9 +5,9 @@ var ElementButton = (function () {
 	 *  return DOM Element
 	 */
 	return function ElementButton() {
-		if (!Const.get('ELEMENT_BUTTON')) 
+		if (!ALLOWED.element(GET.const('ELEMENT_BUTTON_NAME'))) 
 			throw new Exception('ElementButtonException','The element button can not be created!');
 		
-		return new Element(Const.get('ELEMENT_BUTTON'));
+		return new Element(GET.const('ELEMENT_BUTTON_NAME'));
 	}
 })(); 

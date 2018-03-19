@@ -5,10 +5,10 @@ var EventClick = (function () {
 	 *  return Event
 	 */
 	return function EventClick(element, callback) {
-		if (!Const.get('EVENT_CLICK')) 
+		if (!ALLOWED.event(GET.const('EVENT_CLICK_NAME'))) 
 			throw new Exception('CreateClickEventException', 'The event click can not be created!');
 		
-		return new Event(Const.get('EVENT_CLICK'), element, callback);
+		return new Event(GET.const('EVENT_CLICK_NAME'), element, callback);
 	}
 })(); 
 

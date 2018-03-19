@@ -1,7 +1,13 @@
-CONFIG.push({
-	"EVENT_CLICK": "click",
-	"EVENT_FOCUS": "focus",
-	"EVENT_FOCUSOUT": "focusout",
-	"EVENT_HOVER": "hover"
-});
-
+/*
+ * Configurações de eventos
+ * 
+ */
+CONFIG.push(
+	{  
+		/*
+		 * Lista de eventos permitidos para criação
+		 * 
+		 */
+		"EVENT_ALLOWED": ["click", "focus", "focusout", "hover"]
+	}
+);

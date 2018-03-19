@@ -4,18 +4,34 @@ var Game = (function () {
 
 	function main() {
 		try {
-			var button = new ElementButton();
-			button.setContent('Click Me');
+			createButton();
 
-			new EventClick(button.element, function(e) {
-				button.setContent('Clicado');
-			});
+			console.log(new Style({
+				width: '100px',
+				height: '200px'
+			}));
 
-			button.appendTo(document.body);
+			// var draw = new Draw();
+
+			// var square = draw.square('10%', '10%');
+
+			//square.appendTo(document.body);
 
 		} catch(e) {
 			console.log(e);
 		}
+	}
+
+	function createButton() {
+		var button = new ElementButton();
+		button.setContent('Click Me');
+		button.setAttr('style', 'background: #ccc;');
+
+		new EventClick(button.element, function(e) {
+			button.setContent('Clicado');
+		});
+
+		button.appendTo(document.body);
 	}
 })(); 
 

@@ -1,5 +1,5 @@
 /*
- * Configurações de elementos
+ * Configurações de estilos
  * 
  */
 CONFIG.push(
@@ -8,6 +8,6 @@ CONFIG.push(
 		 * Lista de elementos permitidos para criação
 		 * 
 		 */
-		"ELEMENT_ALLOWED": ["canvas", "button", "div"]
+		"STYLES_ALLOWED": ["background", "color", "width", "height"]
 	}
 );

@@ -5,9 +5,9 @@ var ElementCanvas = (function () {
 	 *  return DOM Element
 	 */
 	return function ElementCanvas() {
-		if (!Const.get('ELEMENT_CANVAS')) 
+		if (!ALLOWED.element(GET.const('ELEMENT_CANVAS_NAME'))) 
 			throw new Exception('ElementCanvasException','The element canvas can not be created!');
 		
-		return new Element(Const.get('ELEMENT_CANVAS'));
+		return new Element(GET.const('ELEMENT_CANVAS_NAME'));
 	}
 })(); 
