@@ -24,8 +24,7 @@ var GET = (function () {
 	/*
 	 * Recupera o valor de uma propriedade em um array de objetos
 	 * 
-	 * @object map
-	 * @string property
+	 * @object map, @string property
 	 * return String
 	 */
 	function getProperty(map, property) {

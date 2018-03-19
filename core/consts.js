@@ -24,5 +24,13 @@ CONST.push(
 		 * 
 		 */
 		"EVENT_CLICK_NAME": "click"
+	},
+	{  
+		/*
+		 * Constantantes de styles
+		 * 
+		 */
+		"STYLES_SEPARATOR": ";",
+		"STYLES_ATTR_SEPARATOR": ":"
 	}
 ); 

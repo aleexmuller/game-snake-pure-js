@@ -6,11 +6,6 @@ var Game = (function () {
 		try {
 			createButton();
 
-			console.log(new Style({
-				width: '100px',
-				height: '200px'
-			}));
-
 			// var draw = new Draw();
 
 			// var square = draw.square('10%', '10%');
@@ -24,14 +19,18 @@ var Game = (function () {
 
 	function createButton() {
 		var button = new ElementButton();
+
 		button.setContent('Click Me');
-		button.setAttr('style', 'background: #ccc;');
+		button.setStyle(new Style({
+			width: '100px',
+			height: '20px'
+		}));
+		button.setEvent(new EventClick(function() {
+			alert('clicou');
+		}));
 
-		new EventClick(button.element, function(e) {
-			button.setContent('Clicado');
-		});
 
-		button.appendTo(document.body);
+		button.appendInto(document.body);
 	}
 })(); 
 

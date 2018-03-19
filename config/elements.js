@@ -8,6 +8,6 @@ CONFIG.push(
 		 * Lista de elementos permitidos para criação
 		 * 
 		 */
-		"ELEMENT_ALLOWED": ["canvas", "button", "div"]
+		"ELEMENT_ALLOWED": ["canvas", "button", "div"],
 	}
 );

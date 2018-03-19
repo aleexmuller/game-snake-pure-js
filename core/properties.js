@@ -1,6 +1,6 @@
 var Properties = (function () {
 	/*
-	 * Define o construtor da funcao Properties
+	 * Define as propriedades de um elemento
 	 * 
 	 *	@object element
 	 *  return Object
@@ -12,9 +12,12 @@ var Properties = (function () {
 		return { 
 			element: element, 
 			setAttr: setAttr, 
-			setContent: setContent,
 			getAttr: getAttr, 
-			appendTo: appendTo
+			setContent: setContent,
+			getContent: getContent,
+			appendInto: appendInto,
+			setStyle: setStyle,
+			setEvent: setEvent
 		}
 	}
 
@@ -30,6 +33,16 @@ var Properties = (function () {
 	}
 
 	/*
+	 * Pega o valor de um atributo em um Element
+	 * 
+	 *	@string attr
+	 *  return Boolean
+	 */
+	function getAttr(attr) {
+		return this.element.getAttribute(attr);
+	}
+
+	/*
 	 * Seta conteudo em em um Element
 	 * 
 	 *	@string value
@@ -40,13 +53,13 @@ var Properties = (function () {
 	}
 
 	/*
-	 * Pega o valor de um atributo em um Element
+	 * Seta conteudo em em um Element
 	 * 
-	 *	@string attr
+	 *	@string value
 	 *  return Boolean
 	 */
-	function getAttr(attr) {
-		return this.element.setAttribute(attr, value);
+	function getContent(value) {
+		return this.element.innerHTML;
 	}
 
 	/*
@@ -55,11 +68,30 @@ var Properties = (function () {
 	 *	@string attr
 	 *  return Boolean
 	 */
-	function appendTo(into) {
-		if (!__is_object(into)) 
+	function appendInto(otherElement) {
+		if (!__is_object(otherElement)) 
 			throw new Exception('AppendToException','The method expects an object with a parameter');
 		
-		return into.appendChild(this.element);
+		return otherElement.appendChild(this.element);
 	} 
 
+	/*
+	 * Seta estilo no elemento
+	 * 
+	 *	@Style style
+	 *  return Boolean
+	 */
+	function setStyle(style) {
+		return style(this.element);
+	}
+
+	/*
+	 * Seta um evento no elemento
+	 * 
+	 *	@string attr
+	 *  return Boolean
+	 */
+	function setEvent(event) {
+		return event(this.element);
+	}
 })(); 

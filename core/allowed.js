@@ -25,6 +25,6 @@ var ALLOWED = (function () {
 	 *  return String or null
 	 */
 	function style(name) {
-		return __has_value(GET.config('STYLE_ALLOWED'), name);
+		return __has_value(GET.config('STYLES_ALLOWED'), name);
 	}
 })();
