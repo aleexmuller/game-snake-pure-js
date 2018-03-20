@@ -13,7 +13,7 @@ var Style = (function () {
 			if (!__is_object(element)) 
 				throw new Exception('CreateStyleException', 'The constructor expects an object in parameter "1"');
 
-			return element.setAttribute('style', styleToString(styles));
+			return element.setAttribute('style', _styleToString(styles));
 		}
 	}
 
@@ -23,10 +23,10 @@ var Style = (function () {
 	 *  @object styles
 	 *  return String
 	 */
-	function styleToString(styles) {
+	function _styleToString(styles) {
 		return Object.keys(styles).map(function(key) {
 			if (!ALLOWED.style(key))
-				throw new Exception('StyleToStringException', 'The style can not be created!');
+				throw new Exception("StyleToStringException", "The style '" + key + "' can not be created!");
 
 			if (__has_value(GET.config('STYLES_ALLOWED'), key)) 
 				return [key, styles[key]].join(GET.const('STYLES_ATTR_SEPARATOR'));

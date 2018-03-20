@@ -10,7 +10,7 @@ CONFIG.push(
 		 */
 		"PIX_WIDTH": "10px",
 		"PIX_HEIGHT": "10px",
-		"PIX_BORDER": '1px',
+		"PIX_BORDER_WIDTH": '1px',
 		/*
 		 * Cores do pix
 		 * 

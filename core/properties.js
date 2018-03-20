@@ -15,7 +15,7 @@ var Properties = (function () {
 			getAttr: getAttr, 
 			setContent: setContent,
 			getContent: getContent,
-			appendInto: appendInto,
+			appendIn: appendIn,
 			setStyle: setStyle,
 			setEvent: setEvent
 		}
@@ -68,7 +68,7 @@ var Properties = (function () {
 	 *	@string attr
 	 *  return Boolean
 	 */
-	function appendInto(otherElement) {
+	function appendIn(otherElement) {
 		if (!__is_object(otherElement)) 
 			throw new Exception('AppendToException','The method expects an object with a parameter');
 		
