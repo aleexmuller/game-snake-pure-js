@@ -1,40 +1,108 @@
-var Mapa = (function () {
-	return function Mapa(maxX, maxY) {
-		var mapa = [];
-		for (var x = 0, x <= maxX, x++) {
-			for (var y = 0, y <= maxY, y++) {
-				mapa[x][y] = new Pix();
-			}
+var Car = (function () {
+	var speed = 10,
+		maxSpeed = 10,
+		posX = 0,
+		posY = 0
+
+	return function Car() {
+		return {
+			posX: posX,
+			posY: posY,
+			moveup: moveup,
+			movedown: movedown,
+			moveleft: moveleft,
+			moveright: moveright
 		}
-		return mapa;
 	}
 
-})();
+	function acelerate() {
+		
+	}
 
-var Pix = (function () {
-	var element;
+	function decelerate() {
 
+	}
 
-	function paint() {
-		this.element.setStyle({
-			"background": "#000"
-		});
+	function moveup() {
+		this.posY -= speed;
+	}
+
+	function movedown() {
+		this.posY += speed;
+	}
+
+	function moveleft() {
+		this.posX -= speed;
+	}
+
+	function moveright() {
+		if (this.posX > 300)
+			this.posX = 0; 
+
+		this.posX += speed;
 	}
 })();
 
 
 
 var Game = (function () {
+	var interval;
+	var car;
+	var context;
+
 	return {main: main};
 
 	function main() {
 		try {
-			// createButton();
-			drawMap();
+			//]createButton();
+
+			var button = new ElementButton();
+			button.setContent('move CAr');
+
+
+			var mapa = new ElementCanvas();
+			mapa.setStyle(new Style({
+				width: '250px',
+				height: '200px',
+				background: '#ccc'
+			}));
+			
+			var element = mapa.element;
+			context = element.getContext('2d');
+
+
+			car = new Car();
+
+			
+
+			context.beginPath();
+			context.fillRect(car.posX, car.posY, 15, 10);
+			context.stroke();
+
+
+			button.setEvent(new EventClick(function() {
+				car.moveright();
+			}));
+
+
+			mapa.appendIn(document.body);
+			button.appendIn(document.body);
+
+			interval = setInterval(updateGameArea, 20);
 
 		} catch(e) {
 			console.log(e);
 		}
+	}
+
+	function updateGameArea() {
+		console.log(car.posX);
+		context.clearRect(0, 0, 300, 200);
+		context.fillRect(car.posX, car.posY, 15, 10);
+	}
+
+	function clear(context) {
+		context.clearRect(0, 0, 250, 200);
 	}
 
 	function createButton() {
@@ -51,47 +119,8 @@ var Game = (function () {
 			alert('clicou');
 		}));
 
-
 		button.appendIn(document.body);
 	}
-
-	function drawMap() {
-
-
-		var mapa = new Mapa(100, 100);
-		mapa.paintPix();
-
-
-
-
-
-		var mapaTest = [];
-
-		console.log(mapaTest);
-
-		// mapaTest.forEach(function (item, xIndex) {
-
-		// });
-
-		var draw = new Draw();
-		var mapa = draw.map();
-		 	mapa.appendIn(document.body);
-
-		for (var i = 0; i < 825; i++) {
-			var pix = draw.pix();
-				pix.appendIn(mapa.element);
-		}
-	}
-
-	function generateMap(columns, lines) {
-		var mapa = [];
-		for (var x = 0, x <= columns, x++) {
-			for (var y = 0, y <= lines, y++) {
-				mapa[x][y] = 
-			}
-		}	
-	}
-
 })(); 
 
 
