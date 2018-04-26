@@ -23,7 +23,7 @@ CONST.push(
 		 * Constantantes de nomes de eventos
 		 * 
 		 */
-		"EVENT_CLICK_NAME": "click"
+		"CLICK_EVENT_NAME": "click"
 	},
 	{  
 		/*
