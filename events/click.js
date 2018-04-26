@@ -5,11 +5,11 @@ var ClickEvent = (function () {
 	 *  return Event
 	 */
 	return function ClickEvent(callback) {
-		if (!ALLOWED.event(GET.const('EVENT_CLICK_NAME'))) 
-			throw new Exception('CreateClickEventException', 'The event click can not be created!');
+		if (!ALLOWED.event(GET.const('CLICK_EVENT_NAME'))) 
+			throw new Exception('CreateClickEventException', 'The click event can not be created!');
 		
 		return function(element) {
-			return new Event(GET.const('EVENT_CLICK_NAME'), element, callback);
+			return new Event(GET.const('CLICK_EVENT_NAME'), element, callback);
 		}
 	}	
 
